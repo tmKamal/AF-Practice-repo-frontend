@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import Input from "../../shared/components/form-elements/input/input";
 import "./auth.scss";
 import {
@@ -9,8 +9,11 @@ import {
 import { useForm } from "../../shared/custom-hooks/form-hook";
 import Button from "../../shared/components/form-elements/button";
 import Card from "../../shared/components/UIElements/card/card";
+import {AuthContext} from "../../shared/context/auth-context";
 
 const Auth = () => {
+  const auth=useContext(AuthContext);
+
   const [isLoginMode, setIsLoginMode] = useState(true);
 
   const switchModeHandler = () => {
@@ -48,7 +51,7 @@ const Auth = () => {
   );
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log("user has successfully logged in");
+    auth.login();  
   };
 
   return (
@@ -88,10 +91,10 @@ const Auth = () => {
         <Button type="submit" disabled={!formState.isValid}>
           {isLoginMode ? 'LogIn':'SignUp'}
         </Button>
+      </form>
         <Button inverse onClick={switchModeHandler}>
           {isLoginMode ? "Switch to SignUp" : "Switch to Login"}
         </Button>
-      </form>
     </Card>
   );
 };
