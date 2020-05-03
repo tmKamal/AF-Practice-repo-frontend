@@ -18,6 +18,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const login = useCallback(() => {
     setIsLoggedIn(true);
+    
   }, []);
   const logout = useCallback(() => {
     setIsLoggedIn(false);
