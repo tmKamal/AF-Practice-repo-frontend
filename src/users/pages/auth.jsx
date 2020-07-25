@@ -85,7 +85,7 @@ const Auth = () => {
         }
         console.log(responseData);
         setIsLoading(false);
-        auth.login(); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
+        auth.login(responseData.user.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js, we included the userid too.
       } catch (err) {
         console.log(err);
         setIsLoading(false);
@@ -116,7 +116,7 @@ const Auth = () => {
         }
         console.log(responseData);
         setIsLoading(false);
-        auth.login(); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
+        auth.login(responseData.user.id); //we called the login function of the auth-context. actullly its a empty function, but we have declared its values in app.js
       } catch (err) {
         console.log(err);
         setIsLoading(false);
